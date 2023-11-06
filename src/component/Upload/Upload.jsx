@@ -18,10 +18,10 @@ const Upload = ({ setImages }) => {
         try {
             const formData = new FormData();
             formData.append('file', selectedFile);
-            let res = await axios.post('http://localhost:5000/upload', formData);
+            let res = await axios.post('https://image-task-baeckend.vercel.app/upload', formData);
             if (res.status === 201) {
                 console.log('Success');
-                fetch('http://localhost:5000/images')
+                fetch('https://image-task-baeckend.vercel.app/images')
                     .then(response => response.json())
                     .then(data => setImages(data))
                     .catch(error => console.error(error));
